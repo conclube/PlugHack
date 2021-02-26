@@ -18,6 +18,12 @@ The current commands are:
 
 - **/flyp:** Turns on fly
 
+- **/speed:** Turns on speed hacks
+
+- **/nofall:** Turns on fall damage hacks
+
+- **/plughackreload:** Reloads the config
+
 
 ## Installation
 This plugin is very simple to install on your server. Just drag and drop the Jar from releases into the **plugins** folder
