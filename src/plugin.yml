@@ -1,0 +1,22 @@
+name: PlugHack
+main: PlugHack.MainPack.PlugHackMainC
+version: 1
+commands:
+  flyp:
+    description: Turns on fly
+    usage: /flyp
+  scaffold:
+    description: Turns on scaffold
+    usage: /scaffold
+  plughackreload:
+    description: Reloads the command
+    usage: /plughackreload
+  speed:
+    description: Turns on speed hacks
+    usage: /speed
+  Nofall:
+    description: Turns No fall damage hacks
+    usage: /nofall
+  NoEffect:
+    description: Turns off potion effects
+    usage: /noeffect
