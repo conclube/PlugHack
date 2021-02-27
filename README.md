@@ -30,3 +30,6 @@ The current commands are:
 
 ## Installation
 This plugin is very simple to install on your server. Just drag and drop the Jar from releases into the **plugins** folder
+
+## bStats
+bStats collects anonymous date about how many servers are using the plugin
