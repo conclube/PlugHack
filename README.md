@@ -24,6 +24,9 @@ The current commands are:
 
 - **/plughackreload:** Reloads the config
 
+- **/godp:** Turns on god mode (You cant take damage)
+
+- **/velocity:** Turns on knockback hacks
 
 ## Installation
 This plugin is very simple to install on your server. Just drag and drop the Jar from releases into the **plugins** folder
