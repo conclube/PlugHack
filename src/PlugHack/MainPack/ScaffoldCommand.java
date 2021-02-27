@@ -28,7 +28,7 @@ public class ScaffoldCommand implements CommandExecutor {
                      targetPlayer.sendMessage(ChatColor.GREEN + "Scaffold enabled");
                  }else {
                      targetPlayer.getPersistentDataContainer().set(new NamespacedKey(plugin, "scaffoldtoggle"), PersistentDataType.STRING, "false");
-                     targetPlayer.sendMessage(ChatColor.GREEN + "Disabled Scaffold");
+                     targetPlayer.sendMessage(ChatColor.RED + "Disabled Scaffold");
                  }
 
                 }else {

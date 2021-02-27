@@ -14,9 +14,11 @@ public class Reload implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if (command.getLabel().equalsIgnoreCase("plughackreload")) {
-            commandSender.sendMessage(ChatColor.GREEN + "Reloading...");
-            plugin.reloadConfig();
-            commandSender.sendMessage(ChatColor.GREEN + "Reloaded config!");
+            if (commandSender.hasPermission("PlugHack.Reload")) {
+                commandSender.sendMessage(ChatColor.GREEN + "Reloading...");
+                plugin.reloadConfig();
+                commandSender.sendMessage(ChatColor.GREEN + "Reloaded config!");
+            }
         }
 
             return true;

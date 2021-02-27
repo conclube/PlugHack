@@ -21,7 +21,7 @@ public class Speed implements CommandExecutor {
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if (command.getLabel().equalsIgnoreCase("speed")) {
             if (commandSender instanceof Player) {
-                if (commandSender.hasPermission("PlugHack.speed")) {
+                if (commandSender.hasPermission("PlugHack.Speed")) {
                     Player targetPlayer = ((Player) commandSender).getPlayer();
                     if (Objects.requireNonNull(targetPlayer).getPersistentDataContainer().getOrDefault(new NamespacedKey(plugin, "speed"), PersistentDataType.STRING, "false").equals("false")) {
                         ((Player) commandSender).setWalkSpeed(1);

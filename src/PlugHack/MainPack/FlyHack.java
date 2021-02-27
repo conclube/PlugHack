@@ -17,7 +17,7 @@ public class FlyHack implements CommandExecutor {
             if(command.getLabel().equalsIgnoreCase("flyp")) {
                 Player player = (Player) commandSender;
                 if (commandSender instanceof Player) {
-                    if (player.hasPermission("PlugHack.fly")) {
+                    if (player.hasPermission("PlugHack.Fly")) {
                         if (player.getAllowFlight() == true) {
                             player.setAllowFlight(false);
                             player.sendMessage(ChatColor.RED + "Disabled flight");

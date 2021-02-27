@@ -14,10 +14,12 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.PotionSplashEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
+import org.bukkit.event.player.PlayerVelocityEvent;
 import org.bukkit.persistence.PersistentDataType;
 
 import java.util.Collection;
 import java.util.Objects;
+import java.util.Vector;
 
 public class Events implements Listener {
     PlugHackMainC plugin;
@@ -32,12 +34,15 @@ public class Events implements Listener {
            targetPlayer.getPersistentDataContainer().set(new NamespacedKey(plugin, "scaffoldtoggle"), PersistentDataType.STRING, "false");
            targetPlayer.getPersistentDataContainer().set(new NamespacedKey(plugin, "nofall"), PersistentDataType.STRING, "false");
            targetPlayer.getPersistentDataContainer().set(new NamespacedKey(plugin, "speed"), PersistentDataType.STRING, "false");
+           targetPlayer.getPersistentDataContainer().set(new NamespacedKey(plugin, "velocity"), PersistentDataType.STRING, "false");
+           targetPlayer.getPersistentDataContainer().set(new NamespacedKey(plugin, "noeffect"), PersistentDataType.STRING, "false");
+           targetPlayer.getPersistentDataContainer().set(new NamespacedKey(plugin, "god"), PersistentDataType.STRING, "false");
         }
        }
 
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent e) {
-        if(e.getPlayer().getPersistentDataContainer().get(new NamespacedKey(plugin,"scaffoldtoggle"), PersistentDataType.STRING) == "true") {
+        if(e.getPlayer().getPersistentDataContainer().get(new NamespacedKey(plugin, "scaffoldtoggle"), PersistentDataType.STRING).equals("true")) {
             Block block = e.getPlayer().getLocation().subtract(0, 1, 0).getBlock();
 
         if(block.getType() == Material.AIR) {
@@ -54,8 +59,9 @@ public class Events implements Listener {
                     e.setCancelled(true);
                }
            }
-
-
+        }
+        if(e.getEntity().getPersistentDataContainer().getOrDefault(new NamespacedKey(plugin,"god"), PersistentDataType.STRING, "false").equals("true")) {
+            e.setCancelled(true);
         }
     }
     @EventHandler
@@ -66,5 +72,14 @@ public class Events implements Listener {
             }
         }
     }
+    @EventHandler
+    public void PlayerVelocityEvent(PlayerVelocityEvent e) {
+        Player targetPlayer = e.getPlayer();
+        if(Objects.requireNonNull(targetPlayer).getPersistentDataContainer().getOrDefault(new NamespacedKey(plugin,"velocity"), PersistentDataType.STRING, "false").equals("true")) {
+            e.setCancelled(true);
+        }
+    }
+
+
 }
 
